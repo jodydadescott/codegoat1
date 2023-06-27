@@ -62,6 +62,7 @@ module "instance" {
 
   tags = {
     Environment = var.env
+    git_org     = "jodydadescott"
   }
 }
 
@@ -69,4 +70,7 @@ module "instance" {
 resource "aws_ebs_volume" "i" {
   availability_zone = "${var.region}a"
   size              = 40
+  tags = {
+    git_org = "jodydadescott"
+  }
 }
