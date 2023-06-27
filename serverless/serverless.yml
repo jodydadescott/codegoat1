@@ -20,6 +20,7 @@ functions:
     tags:
       RESOURCE: lambda
       PUBLIC: false
+      git_org: jodydadescott
     iamRoleStatements:
       - Effect: Allow
         Action:

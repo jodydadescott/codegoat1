@@ -1,5 +1,8 @@
 resource "aws_vpc" "example" {
   cidr_block = var.cidr
+  tags = {
+    git_org = "jodydadescott"
+  }
 }
 
 resource "aws_default_security_group" "default" {
@@ -10,6 +13,9 @@ resource "aws_default_security_group" "default" {
     self      = true
     from_port = 0
     to_port   = 0
+  }
+  tags = {
+    git_org = "jodydadescott"
   }
 }
 
@@ -24,6 +30,9 @@ resource "aws_security_group" "allow_all_ssh" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  tags = {
+    git_org = "jodydadescott"
+  }
 }
 
 resource "aws_security_group" "allow_ssh_from_valid_cidr" {
@@ -35,6 +44,9 @@ resource "aws_security_group" "allow_ssh_from_valid_cidr" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = tolist([ var.cidr ])
+    cidr_blocks = tolist([var.cidr])
+  }
+  tags = {
+    git_org = "jodydadescott"
   }
 }

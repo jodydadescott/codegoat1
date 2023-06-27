@@ -22,6 +22,9 @@ resource "aws_iam_policy" "policy_resource_fail" {
       }
     ]
   })
+  tags = {
+    git_org = "jodydadescott"
+  }
 }
 
 resource "aws_iam_policy" "policy_resource_pass" {
@@ -48,6 +51,9 @@ resource "aws_iam_policy" "policy_resource_pass" {
       }
     ]
   })
+  tags = {
+    git_org = "jodydadescott"
+  }
 }
 
 data "aws_iam_policy_document" "policy_data_fail" {
